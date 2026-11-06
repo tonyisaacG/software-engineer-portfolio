@@ -106,7 +106,7 @@ export const profile = {
       ],
     },
     {
-      title: 'Architecture & Design',
+      title: 'Architecture & Patterns',
       skills: [
         'Clean Architecture',
         'Domain-Driven Design (DDD)',
