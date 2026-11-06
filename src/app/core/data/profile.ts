@@ -70,8 +70,8 @@ export const profile = {
     'practices impact maintainability, system reliability, and data consistency.',
   currentRole: 'Software Engineer at Cyrus Tech Company',
   links: {
-    github: 'https://github.com/AntonyIsaac',
-    linkedin: 'https://www.linkedin.com/in/antony-isaac/',
+    github: 'https://github.com/tonyisaacG/',
+    linkedin: 'https://www.linkedin.com/in/anton-isaac/',
     hackerrank: 'https://www.hackerrank.com/profile/antonyisaacgayed',
     cv: '/cv.pdf',
   },
