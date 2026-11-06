@@ -1,0 +1,81 @@
+Antony Isaac Gayed
+Software Engineer - Backend
+Map-marker-alt Cairo, Egypt | Phone-Alt +201225609831 / +201551969749 | Envelope antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com	antonyisaacgayed@gmail.com
+LINKEDIN LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn	LinkedIn | Github GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub	GitHub | HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank	HackerRank
+PROFESSIONAL SUMMARY
+Detail-oriented Software Engineer with 3+ years of professional experience developing robust APIs, core backend systems,
+and secure application modules within the .NET ecosystem. Competent in building scalable RESTful services,
+implementing Clean Architecture practices, and optimizing database query performance. Proven track record of
+contributing to production-ready platforms including retail management systems and automated tax middleware
+integrations, with a solid focus on delivering clean code, writing unit tests, and working effectively within agile development
+teams.
+TECHNICAL SKILLS
+Languages & Frameworks : C#, ASP.NET Core, Web API, Entity Framework Core, LINQ, OOP, ASP.NET MVC, Windows
+Forms
+Architecture & Security : Clean Architecture, CQRS, Modular Monolithic, Multi-Tenant, JWT, HMAC, Rate Limiting, RBAC
+Testing & DevOps : Unit Testing (xUnit), Docker (Containerization)
+Databases & Utilities : SQL Server, MySQL, SQLite, Redis, Serilog, Quartz.NET, Git, GitHub, Postman, Vite
+Frontend Technologies : Angular, JavaScript (ES6), HTML5, CSS3, Sass, Bootstrap, jQuery, Ajax
+PROFESSIONAL EXPERIENCE
+Cyrus March 2023 – Present
+Software Engineer (.NET Backend) Cairo, Egypt
+• ETA Middleware Integration System
+Tools: ASP.NET Core, Quartz.NET, HMAC, Multi-Tenant, Serilog
+Architected and deployed a centralized business middleware platform integrated with the Egyptian Tax Authority (ETA) portals for
+streamlined data ingestion and cross-platform document validation workflows.
+◦ Contributed to migrating monolithic integration engines toward multi-tenant structures to optimize operational scalability.
+◦ Implemented secure communication pipelines relying on API cryptographic HMAC signatures for incoming ingestion channels.
+◦ Engineered continuous automated background processing synchronization workers utilizing Quartz.NET schedulers.
+◦ Enforced endpoint protection layers through API rate limiting and structured diagnostics via Serilog logging.
+• Retail Management System (RMS)
+Tools: ASP.NET Core, EF Core, CQRS, Modular Monolithic, Redis, SQL Server, Offline Sync
+Engineered back-end operational services for a comprehensive multi-branch retail architecture supervising active inventory catalogs,
+live sales points, and balance ledgers.
+◦ Built isolated domain contexts leveraging a modular monolithic approach to minimize service-to-service architectural coupling.
+◦ Implemented CQRS patterns to segregate read/write footprints, increasing heavy database query throughput by 40%.
+◦ Deployed Redis distributed layers and background sync workers ensuring data consistency for local offline transactions.
+• Portal & CRM Accountant System
+Tools: ASP.NET Core Web API, SQL Server, DB Schema Optimization, RBAC, Multi-Tenant
+Constructed backend logic for a multi-tenant corporate accounting CRM designed to orchestrate structural tax document lifecycles
+and administrative auditing assignments.
+◦ Created government integration modules executing deep multi-client structural profile fetching and historical archiving.
+◦ Optimized core relational indexing properties and indexing schemas, accelerating statistical financial reporting generations by 35%.
+◦ Enforced rigid multi-tenant Role-Based Access Control (RBAC) layers guaranteeing absolute environment isolation.
+Freelance January 2023 – February 2023
+Software Engineer (.NET Backend) Cairo, Egypt
+• Financial Transfer Application Module
+
+-- 1 of 2 --
+
+Tools: Windows Forms, C#, SQL Server, Database Architecture
+Developed and maintained a secure internal desktop accounting client used across commercial branches to process high-frequency
+balance records.
+◦ Engineered structural database logic and isolated procedures to guarantee atomicity during deposits, withdrawals, and internal
+accounts clearing.
+◦ Standardized desktop-to-server relational data synchronization protocols to guarantee secure audit log retention.
+PROJECTS
+Seafood Restaurant System | Angular, Web API, EF Core (Code First) Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End	Front-End | Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End	Back-End
+• Online food ordering, kitchen management, and structural logistics tracking system driving multi-branch restaurant
+administration workflows.
+Courses Center Platform | ASP.NET MVC, C#, SQL, jQuery, Ajax, Sass, Bootstrap, ES6 GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code
+• A full-featured educational portal facilitating remote learning environments, digital academic repository hosting,
+assignment distribution, and student records ledger tracking.
+Chrome Extension Utility App | JavaScript, HTML5, CSS3 GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code	GitHub Code
+• Browser productivity tool featuring customized interactive user greetings paired with state-retaining browser storage
+To-Do list utilities.
+EDUCATION
+Information Technology Institute (ITI) Apr. 2022 – Aug. 2022
+Open Source .NET Full Stack Development Intensive Training (120 hrs) Minya Branch
+Minya University 2016 – 2020
+Bachelor of Computers and Information Minya, Egypt
+CERTIFICATIONS
+• Advanced Web APIs with ASP.NET Core in .NET 6 – LinkedIn (Sep 2022)
+• Database Fundamentals & TypeScript Fundamentals – MaharTech (2022)
+• Interactivity with JavaScript – Coursera (2022) | Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link	Verify Link
+• Open Source Development Training (120 hrs) – ITI Minya Branch (Aug 2019)
+ADDITIONAL INFORMATION
+Languages : Arabic (Native), English (Good)
+Military Status : Completed
+
+-- 2 of 2 --
+
