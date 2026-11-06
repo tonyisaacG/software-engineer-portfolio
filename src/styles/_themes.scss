@@ -1,0 +1,49 @@
+// Theme tokens exposed as CSS custom properties.
+// Light is the default; dark is applied via [data-theme='dark'] on <html>.
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f7f7f8;
+  --color-bg-header: rgba(255, 255, 255, 0.85);
+  --color-surface: #ffffff;
+  --color-border: #e4e4e7;
+  --color-border-strong: #d4d4d8;
+
+  --color-text: #18181b;
+  --color-text-muted: #52525b;
+  --color-text-faint: #71717a;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: #eff6ff;
+
+  --color-focus-ring: #2563eb;
+
+  --shadow-header: 0 1px 0 0 var(--color-border);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #0c0c0e;
+  --color-bg-subtle: #141417;
+  --color-bg-header: rgba(12, 12, 14, 0.85);
+  --color-surface: #17171a;
+  --color-border: #27272a;
+  --color-border-strong: #3f3f46;
+
+  --color-text: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+  --color-text-faint: #71717a;
+
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
+  --color-accent-subtle: #172554;
+
+  --color-focus-ring: #60a5fa;
+
+  --shadow-header: 0 1px 0 0 var(--color-border);
+}
