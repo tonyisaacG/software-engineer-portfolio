@@ -143,10 +143,9 @@ export const profile = {
       skills: [
         'Linux (Ubuntu)',
         'Nginx Reverse Proxy',
-        'systemd Services',
-        'Kestrel Hosting',
         'Git & GitHub Actions',
         'CI/CD Pipelines',
+        'Postman',
       ],
     },
   ],
