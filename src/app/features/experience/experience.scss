@@ -3,6 +3,7 @@
 
 .experience {
   padding-block: $space-8;
+  background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 
   &__inner {
@@ -65,7 +66,7 @@
     font-size: 1.05rem;
     line-height: 1.8;
     color: var(--color-text-muted);
-    max-width: 52rem;
+    max-width: 100%;
     margin: 0;
   }
 
@@ -126,58 +127,26 @@
   }
 
   &__systems-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: $space-5;
     width: 100%;
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    &--single {
-      @include respond-to($breakpoint-lg) {
-        grid-template-columns: 1fr;
-      }
-
-      .experience__system-card {
-        width: 100%;
-
-        @include respond-to($breakpoint-md) {
-          display: grid;
-          grid-template-columns: 1.4fr 1fr;
-          gap: $space-6;
-          align-items: start;
-        }
-      }
-
-      .experience__system-side {
-        border-top: none;
-        padding-top: 0;
-
-        @include respond-to($breakpoint-md) {
-          border-left: 1px solid var(--color-rule);
-          padding-left: $space-6;
-          height: 100%;
-        }
-      }
-
-      .experience__system-stack {
-        border-top: none;
-        padding-top: 0;
-      }
-    }
   }
 
   &__system-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: $radius-sm;
-    padding: $space-5;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: $space-5 $space-6;
+    width: 100%;
     transition: all 160ms ease;
+
+    @include respond-to($breakpoint-md) {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: $space-6;
+      align-items: start;
+    }
 
     &:hover {
       border-color: var(--color-accent);
@@ -194,6 +163,14 @@
   &__system-side {
     padding-top: $space-4;
     border-top: 1px solid var(--color-rule);
+
+    @include respond-to($breakpoint-md) {
+      border-top: none;
+      border-left: 1px solid var(--color-rule);
+      padding-top: 0;
+      padding-left: $space-6;
+      height: 100%;
+    }
   }
 
   &__stack-label {

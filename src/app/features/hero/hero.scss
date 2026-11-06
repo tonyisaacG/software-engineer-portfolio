@@ -3,7 +3,12 @@
 
 .hero {
   padding-block: $space-7 $space-8;
-  background: radial-gradient(ellipse 80% 50% at 50% -10%, var(--color-accent-subtle) 0%, transparent 70%);
+  position: relative;
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, var(--color-accent-subtle) 0%, transparent 75%),
+    radial-gradient(circle at 1px 1px, var(--color-border) 1px, transparent 0);
+  background-size: 100% 100%, 28px 28px;
   border-bottom: 1px solid var(--color-border);
 
   &__inner {
@@ -13,7 +18,7 @@
     gap: $space-7;
 
     @include respond-to($breakpoint-lg) {
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.15fr);
+      grid-template-columns: minmax(0, 1.85fr) minmax(0, 1.15fr);
       gap: $space-8;
       align-items: center;
     }
@@ -24,11 +29,17 @@
   }
 
   &__name {
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-size: clamp(2rem, 3.8vw, 3.35rem);
     font-weight: 800;
     margin: 0 0 $space-2;
     letter-spacing: -0.03em;
     color: var(--color-text);
+    white-space: nowrap;
+
+    @media (max-width: 480px) {
+      white-space: normal;
+      font-size: 2.2rem;
+    }
   }
 
   &__headline {
@@ -46,6 +57,7 @@
     padding: $space-2 $space-4;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
     border-radius: $radius-sm;
     margin: 0 0 $space-5;
     display: inline-block;
@@ -75,7 +87,12 @@
   &__card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: $radius-md;
     padding: $space-6;
+    box-shadow: var(--shadow-lift);
+    position: relative;
+    overflow: hidden;
   }
 
   &__card-title {
@@ -85,6 +102,18 @@
     padding-bottom: $space-3;
     border-bottom: 1px solid var(--color-rule);
     color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+    }
   }
 
   &__facts {

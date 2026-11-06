@@ -3,6 +3,8 @@
 
 .contact {
   padding-block: $space-8;
+  background-color: var(--color-bg-subtle);
+  border-bottom: 1px solid var(--color-border);
 
   &__inner {
     @include container;
@@ -36,6 +38,42 @@
     margin-bottom: $space-6;
   }
 
+  &__scope-top-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-1;
+  }
+
+  &__availability-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+
+  &__avail-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: $font-family-mono;
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: var(--color-status-online);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+  }
+
+  &__avail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-status-online);
+  }
+
   &__scope-title {
     font-size: 1.35rem;
     font-weight: 700;
@@ -54,8 +92,11 @@
     gap: $space-5;
 
     @include respond-to($breakpoint-md) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: $space-5;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -283,6 +324,20 @@
     border: 1px solid var(--color-accent);
     color: var(--color-accent);
     font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: $space-4;
+  }
+
+  &__form-error {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-3 $space-4;
+    border-radius: $radius-sm;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: $space-4;
   }

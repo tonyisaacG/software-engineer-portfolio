@@ -22,7 +22,7 @@ export interface ExperienceItem {
 export interface ProjectItem {
   name: string;
   domain: string;
-  category: 'Enterprise Production' | 'Independent Application';
+  category: string;
   pitch: string;
   architectureDetails: string;
   stack: string[];
@@ -52,7 +52,7 @@ export const profile = {
   name: 'Antony Isaac Gayed',
   firstName: 'Antony',
   monogram: 'AG',
-  headline: 'Software Engineer — .NET & Enterprise Business Systems',
+  headline: 'Software Engineer',
   positioning: 'Software Engineer | .NET / Full-Stack Development | Enterprise Business Systems',
   focus: '.NET 8/9 · ASP.NET Core · Clean Architecture · SQL Server · Angular',
   location: 'Cairo, Egypt',
@@ -60,14 +60,28 @@ export const profile = {
   phone: '+20 122 560 9831',
   yearsExperience: '3 Years',
   status: 'Open to engineering opportunities & remote roles',
+  heroPitch:
+    'Software Engineer specializing in C#, ASP.NET Core, and distributed backend architectures. ' +
+    'I design and scale high-reliability enterprise business platforms, POS systems, and tax compliance integration gateways.',
+  heroHighlights: [
+    { label: 'Current Role', value: 'Software Engineer at Cyrus Tech Company' },
+    { label: 'Core Specialization', value: 'Backend Architecture & Transactional Systems' },
+    { label: 'Key Impact', value: '+40% Query Throughput via CQRS & Redis Caching' },
+    { label: 'Integrations', value: 'Egyptian Tax Authority (ETA) HMAC Invoicing Gateway' },
+    { label: 'Infrastructure', value: 'Linux (Ubuntu), Nginx Reverse Proxy, Kestrel' },
+  ],
+  aboutBio:
+    'Over the past 3 years at Cyrus Tech Company, I have specialized in engineering transactional backend engines ' +
+    'and multi-tenant business platforms. My daily work revolves around designing clean domain models, optimizing relational database ' +
+    'schemas in SQL Server, and ensuring high throughput and strict ACID consistency across retail and accounting platforms.',
+  aboutRole:
+    'I actively contribute across the entire engineering lifecycle: translating complex business logic into modular ' +
+    'Clean Architecture services, automating background reconciliation workers with Quartz.NET, diagnosing production bottlenecks, ' +
+    'and deploying resilient services behind Nginx reverse proxies on Linux.',
   summary:
     'Software Engineer with ~3 years of professional experience specializing in backend ' +
     'development using C# and the .NET ecosystem (.NET 8/9, ASP.NET Core, EF Core, SQL Server), ' +
-    'complemented by practical full-stack experience in Angular & TypeScript, and hands-on Linux/Nginx infrastructure. ' +
-    'I build and maintain business-critical enterprise platforms including Retail Management Systems (RMS), ' +
-    'Point of Sale (POS) solutions, warehouse & inventory transaction systems, Egyptian Tax Authority integrations, ' +
-    'and multi-tenant accounting SaaS. I focus on understanding why architectural decisions are made and how engineering ' +
-    'practices impact maintainability, system reliability, and data consistency.',
+    'complemented by practical full-stack experience in Angular & TypeScript, and hands-on Linux/Nginx infrastructure.',
   currentRole: 'Software Engineer at Cyrus Tech Company',
   links: {
     github: 'https://github.com/tonyisaacG/',
@@ -248,55 +262,48 @@ export const profile = {
   ],
   projects: [
     {
-      name: 'Retail Management System (RMS)',
-      domain: 'Enterprise Retail & POS',
-      category: 'Enterprise Production',
+      name: 'Seafood Restaurant Multi-Branch Platform',
+      domain: 'Hospitality & Order Logistics',
+      category: 'Full-Stack Application',
       pitch:
-        'Enterprise business management platform supporting retail operations, multi-warehouse inventory, POS sales, and financial ledgers.',
+        'Full-stack online food ordering, kitchen order dispatching, and inventory logistics tracking system driving multi-branch restaurant administration.',
       architectureDetails:
-        'Engineered backend ASP.NET Core APIs, inventory balance consistency workflows, warehouse transactions, and database audit tracking.',
-      stack: ['ASP.NET Core', 'C#', 'SQL Server', 'EF Core', 'Angular', 'Redis'],
-    },
-    {
-      name: 'Egyptian Tax Authority E-Invoicing Middleware',
-      domain: 'Financial Integration Middleware',
-      category: 'Enterprise Production',
-      pitch:
-        'Centralized integration engine connecting ERPs, POS systems, and retail platforms with Egyptian Tax Authority e-invoicing portals.',
-      architectureDetails:
-        'Implemented cryptographic HMAC signatures, Quartz.NET background job synchronization, and multi-tenant ingestion for Odoo, Shopify, and Foodics.',
-      stack: ['ASP.NET Core', 'Quartz.NET', 'HMAC', 'REST APIs', 'SQL Server', 'Serilog'],
-    },
-    {
-      name: 'Reportal CRM / Accountant SaaS',
-      domain: 'Multi-Tenant Accounting SaaS',
-      category: 'Enterprise Production',
-      pitch:
-        'SaaS platform for accounting firms managing clients, tasks, and document lifecycles with strict tenant isolation.',
-      architectureDetails:
-        'Built with .NET 9 and EF Core 9 using Clean Architecture and DDD bounded contexts, with Google Drive OAuth document synchronization.',
-      stack: ['.NET 9', 'C#', 'EF Core 9', 'Clean Architecture', 'DDD', 'Google Drive API', 'RBAC'],
+        'Architected with an Angular standalone frontend, ASP.NET Core RESTful APIs, EF Core (Code First) persistence, and transactional SQL Server schema.',
+      stack: ['Angular', 'TypeScript', 'ASP.NET Core Web API', 'EF Core', 'SQL Server'],
+      links: [{ label: 'GitHub Repository', url: 'https://github.com/tonyisaacG/' }],
     },
     {
       name: 'Smart Wallet — Money Tracker',
       domain: 'Personal Finance Mobile Application',
-      category: 'Independent Application',
+      category: 'Mobile Application',
       pitch:
         'Offline-first personal finance application designed to help users track cash flows, categories, and balances with Arabic RTL support.',
       architectureDetails:
         'Built with Flutter & SQLite (SQFlite) utilizing Provider state management, database schema migrations, and Material 3 design.',
       stack: ['Flutter', 'Dart', 'SQLite', 'SQFlite', 'Provider', 'Material 3', 'RTL'],
-      links: [{ label: 'Mobile Architecture Case Study', url: '#writing' }],
+      links: [{ label: 'GitHub Profile', url: 'https://github.com/tonyisaacG/' }],
     },
     {
-      name: 'Seafood Restaurant Multi-Branch System',
-      domain: 'Hospitality & Order Logistics',
-      category: 'Independent Application',
+      name: 'Courses Center Platform',
+      domain: 'EdTech & Learning Management',
+      category: 'Full-Stack Web Portal',
       pitch:
-        'Online food ordering, kitchen order dispatching, and inventory logistics tracking driving multi-branch restaurant administration.',
+        'Full-featured educational portal facilitating remote learning environments, digital academic repository hosting, assignment distribution, and student records tracking.',
       architectureDetails:
-        'Full-stack architecture featuring Angular standalone frontend, ASP.NET Core REST APIs, and EF Core Code First persistence.',
-      stack: ['Angular', 'TypeScript', 'ASP.NET Core Web API', 'EF Core', 'SQL Server'],
+        'Engineered backend logic using ASP.NET MVC and C#, relational database schema design in SQL Server, and asynchronous front-end workflows with AJAX and Sass.',
+      stack: ['ASP.NET MVC', 'C#', 'SQL Server', 'jQuery', 'AJAX', 'Sass', 'Bootstrap'],
+      links: [{ label: 'GitHub Repository', url: 'https://github.com/tonyisaacG/' }],
+    },
+    {
+      name: 'Chrome Productivity Extension',
+      domain: 'Browser Tooling & Productivity',
+      category: 'Browser Extension',
+      pitch:
+        'Browser productivity utility featuring customized interactive user greetings paired with state-retaining browser storage To-Do list workflows.',
+      architectureDetails:
+        'Engineered using vanilla JavaScript (ES6+), Chrome Storage APIs for persistence, and responsive popup interface.',
+      stack: ['JavaScript (ES6+)', 'Chrome Storage API', 'HTML5', 'CSS3'],
+      links: [{ label: 'GitHub Repository', url: 'https://github.com/tonyisaacG/' }],
     },
   ],
   education: [

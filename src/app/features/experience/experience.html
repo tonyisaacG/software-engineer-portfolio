@@ -48,7 +48,7 @@
             <h4 class="experience__subheading">
               {{ job.projects.length > 1 ? 'Major Production Systems Shipped' : 'Production System Shipped' }}
             </h4>
-            <div class="experience__systems-grid" [class.experience__systems-grid--single]="job.projects.length === 1">
+            <div class="experience__systems-grid">
               @for (project of job.projects; track project.name) {
                 <div class="experience__system-card">
                   <div class="experience__system-main">

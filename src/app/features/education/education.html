@@ -1,0 +1,77 @@
+<section class="education" id="education" aria-labelledby="education-heading">
+  <div class="education__inner">
+    <header class="section-header">
+      <div class="section-header__badge">04 · Education & Credentials</div>
+      <h2 class="section-header__title" id="education-heading">Education & Certifications</h2>
+      <p class="section-header__subtitle">
+        Academic foundations in computer science, specialized intensive .NET engineering diplomas, and industry-verified credentials.
+      </p>
+    </header>
+
+    <div class="education__grid">
+      <!-- Academic & Intensive Diploma Card -->
+      <div class="education__card card">
+        <div class="education__card-header">
+          <div class="education__card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div>
+            <span class="eyebrow">Academic & Professional Training</span>
+            <h3 class="education__card-title">Degrees & Intensive Diplomas</h3>
+          </div>
+        </div>
+
+        <div class="education__items">
+          @for (item of profile.education; track item.institution) {
+            <div class="education__item">
+              <div class="education__item-head">
+                <h4 class="education__item-title">{{ item.credential }}</h4>
+                <span class="education__item-period">{{ item.period }}</span>
+              </div>
+              <p class="education__item-inst">{{ item.institution }}</p>
+              @if (item.note) {
+                <span class="meta education__item-note">{{ item.note }}</span>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Verified Certifications Card -->
+      <div class="education__card card">
+        <div class="education__card-header">
+          <div class="education__card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div>
+            <span class="eyebrow">Verified Technical Credentials</span>
+            <h3 class="education__card-title">Professional Certifications</h3>
+          </div>
+        </div>
+
+        <div class="education__items">
+          @for (cert of profile.certifications; track cert.name) {
+            <div class="education__item education__item--cert">
+              <div class="education__cert-badge" aria-hidden="true">✓</div>
+              <div class="education__cert-content">
+                <h4 class="education__item-title">{{ cert.name }}</h4>
+                <div class="education__cert-meta">
+                  <span class="education__cert-issuer">{{ cert.issuer }}</span>
+                  <span class="meta">·</span>
+                  <span class="meta">{{ cert.year }}</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -2,7 +2,7 @@
   <div class="about__inner">
     <!-- Section Header on TOP -->
     <header class="section-header">
-      <div class="section-header__badge">01 · About & Skills</div>
+      <div class="section-header__badge">01 · About & Technical Skills</div>
       <h2 class="section-header__title" id="about-heading">Engineering Background & Skills</h2>
       <p class="section-header__subtitle">
         Software Engineer specializing in .NET backend systems, Clean Architecture, and enterprise business applications.
@@ -12,15 +12,12 @@
     <!-- Top Editorial Spread: Story + Philosophy (No clunky cards) -->
     <div class="about__narrative-grid">
       <div class="about__bio">
-        <h3 class="about__subheading">Who I Am</h3>
+        <h3 class="about__subheading">Professional Background</h3>
         <p class="about__text">
-          I am a Software Engineer based in Cairo with approximately 3 years of professional experience developing enterprise
-          business platforms at Cyrus Tech Company. My primary specialization is backend engineering using C# and the .NET ecosystem,
-          with practical full-stack experience in Angular & TypeScript, and hands-on Linux/Nginx infrastructure.
+          {{ profile.aboutBio }}
         </p>
         <p class="about__text">
-          I participate across the entire software engineering lifecycle: analyzing business requirements, architecting RESTful services,
-          designing relational databases, automating background jobs, and investigating production issues.
+          {{ profile.aboutRole }}
         </p>
       </div>
 
@@ -58,34 +55,6 @@
             </ul>
           </div>
         }
-      </div>
-    </div>
-
-    <!-- Education & Certifications Timeline -->
-    <div class="about__meta-grid">
-      <div class="about__meta-col" aria-labelledby="education-heading">
-        <h3 class="about__meta-title" id="education-heading">Education & Training</h3>
-        <ul class="about__edu-list">
-          @for (item of profile.education; track item.institution) {
-            <li class="about__edu-item">
-              <h4 class="about__edu-credential">{{ item.credential }}</h4>
-              <p class="about__edu-institution">{{ item.institution }}</p>
-              <span class="meta about__edu-period">{{ item.period }}</span>
-            </li>
-          }
-        </ul>
-      </div>
-
-      <div class="about__meta-col" aria-labelledby="certifications-heading">
-        <h3 class="about__meta-title" id="certifications-heading">Certifications & Verification</h3>
-        <ul class="about__cert-list">
-          @for (cert of profile.certifications; track cert.name) {
-            <li class="about__cert-item">
-              <span class="about__cert-name">{{ cert.name }}</span>
-              <span class="meta">{{ cert.issuer }} · {{ cert.year }}</span>
-            </li>
-          }
-        </ul>
       </div>
     </div>
   </div>

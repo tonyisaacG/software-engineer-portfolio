@@ -2,7 +2,7 @@
   <div class="contact__inner">
     <!-- Section Header on TOP -->
     <header class="section-header">
-      <div class="section-header__badge">04 · Connect With Me</div>
+      <div class="section-header__badge">05 · Connect With Me</div>
       <h2 class="section-header__title" id="contact-heading">Connect With Me</h2>
       <p class="section-header__subtitle">
         I am actively available for new full-time software engineering roles, contract projects, and technical collaboration.
@@ -12,7 +12,23 @@
     <!-- Scope of Collaboration & Availability Banner -->
     <div class="contact__work-scope card">
       <div class="contact__scope-head">
-        <span class="eyebrow">Availability & Collaboration</span>
+        <div class="contact__scope-top-row">
+          <span class="eyebrow">Availability & Collaboration</span>
+          <div class="contact__availability-tags">
+            <span class="contact__avail-pill">
+              <span class="contact__avail-dot" aria-hidden="true"></span>
+              Full-Time
+            </span>
+            <span class="contact__avail-pill">
+              <span class="contact__avail-dot" aria-hidden="true"></span>
+              Freelance
+            </span>
+            <span class="contact__avail-pill">
+              <span class="contact__avail-dot" aria-hidden="true"></span>
+              Part-Time
+            </span>
+          </div>
+        </div>
         <h3 class="contact__scope-title">How I Can Help Your Team or Business</h3>
       </div>
 
@@ -43,6 +59,16 @@
             <h4 class="contact__scope-name">Team Co-Building & Integrations</h4>
             <p class="contact__scope-desc">
               Collaborating within engineering teams to implement third-party integrations (tax portals, POS, ERPs), build automated background worker pipelines, and support production systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact__scope-item">
+          <div class="contact__scope-icon" aria-hidden="true">💼</div>
+          <div class="contact__scope-body">
+            <h4 class="contact__scope-name">Freelance & Part-Time Roles</h4>
+            <p class="contact__scope-desc">
+              Available for scoped freelance deliverables, part-time backend engineering, sprint contributions, and ad-hoc technical consulting for startups and commercial businesses.
             </p>
           </div>
         </div>
@@ -147,7 +173,16 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
-            <span>Message prepared for delivery to {{ profile.email }}!</span>
+            <span>Thank you! Your message has been sent directly to Antony's inbox.</span>
+          </div>
+        }
+
+        @if (submitError()) {
+          <div class="contact__form-error">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>
+            </svg>
+            <span>{{ submitError() }}</span>
           </div>
         }
 
@@ -194,8 +229,12 @@
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn--solid contact__submit-btn">
-            Send Message to Antony →
+          <button type="submit" class="btn btn--solid contact__submit-btn" [disabled]="isSubmitting()">
+            @if (isSubmitting()) {
+              <span>Sending message...</span>
+            } @else {
+              <span>Send Message to Antony →</span>
+            }
           </button>
         </form>
       </div>

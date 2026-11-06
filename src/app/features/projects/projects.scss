@@ -3,6 +3,7 @@
 
 .projects {
   padding-block: $space-8;
+  background-color: var(--color-bg-subtle);
   border-bottom: 1px solid var(--color-border);
 
   &__inner {
