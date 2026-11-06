@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Software Engineer Portfolio
 
 A professional, minimal portfolio built with Angular. Currently at milestone v0.1:
@@ -63,3 +64,7 @@ src/
 Future milestones will add Experience, Projects, Case Studies, Writing, and
 Contact sections. Navigation items for unimplemented sections are rendered as
 disabled placeholders and do not link anywhere.
+=======
+# software-engineer-portfolio
+My professional software engineering portfolio
+>>>>>>> 84a8e9b9c085eaa6cf37877dc9e2fd26ee06e143
