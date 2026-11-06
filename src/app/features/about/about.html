@@ -36,6 +36,33 @@
           <p>{{ profile.philosophy }}</p>
         </blockquote>
       </section>
+
+      <section class="about__block" aria-labelledby="education-heading">
+        <h3 class="about__block-title" id="education-heading">Education</h3>
+        <ul class="about__edu-list">
+          @for (item of profile.education; track item.institution) {
+            <li class="about__edu-item">
+              <div class="about__edu-main">
+                <h4 class="about__edu-credential">{{ item.credential }}</h4>
+                <p class="about__edu-institution">{{ item.institution }}</p>
+              </div>
+              <p class="meta about__edu-period">{{ item.period }}</p>
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section class="about__block" aria-labelledby="certifications-heading">
+        <h3 class="about__block-title" id="certifications-heading">Certifications</h3>
+        <ul class="about__cert-list">
+          @for (cert of profile.certifications; track cert.name) {
+            <li class="about__cert-item">
+              <span class="about__cert-name">{{ cert.name }}</span>
+              <span class="meta">{{ cert.issuer }} · {{ cert.year }}</span>
+            </li>
+          }
+        </ul>
+      </section>
     </div>
   </div>
 </section>

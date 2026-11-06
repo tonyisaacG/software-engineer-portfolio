@@ -9,21 +9,10 @@
       <ul class="site-header__list">
         @for (item of navItems; track item.label) {
           <li>
-            @if (item.implemented) {
-              <a class="site-header__link" [href]="item.href" (click)="closeMenu()">
-                <span class="site-header__index" aria-hidden="true">{{ item.index }}</span>
-                {{ item.label }}
-              </a>
-            } @else {
-              <span
-                class="site-header__link site-header__link--disabled"
-                aria-disabled="true"
-                [attr.title]="item.label + ' — coming soon'"
-              >
-                <span class="site-header__index" aria-hidden="true">{{ item.index }}</span>
-                {{ item.label }}
-              </span>
-            }
+            <a class="site-header__link" [href]="item.href" (click)="closeMenu()">
+              <span class="site-header__index" aria-hidden="true">{{ item.index }}</span>
+              {{ item.label }}
+            </a>
           </li>
         }
       </ul>

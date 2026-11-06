@@ -1,0 +1,104 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.projects {
+  scroll-margin-top: $header-height;
+  border-top: 1px solid var(--color-rule);
+
+  &__inner {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+    padding-block: $space-8 $space-9;
+
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+      gap: $space-9;
+    }
+  }
+
+  &__rail {
+    @include respond-to($breakpoint-lg) {
+      position: sticky;
+      top: calc(#{$header-height} + #{$space-6});
+      align-self: start;
+    }
+  }
+
+  &__rail-title {
+    font-size: $font-size-display-sm;
+    margin: $space-3 0 $space-4;
+  }
+
+  &__rail-meta {
+    max-width: 16rem;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 52rem;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $space-5;
+    padding-block: $space-6;
+    border-bottom: 1px solid var(--color-rule);
+    transition: transform 160ms ease;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: 4rem 1fr;
+      gap: $space-7;
+
+      &:hover {
+        transform: translateX(4px);
+      }
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__index {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    color: var(--color-accent-2);
+    letter-spacing: 0.08em;
+    padding-top: 0.3rem;
+  }
+
+  &__body {
+    min-width: 0;
+  }
+
+  &__name {
+    margin: 0 0 $space-2;
+    font-size: $font-size-xl;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+
+  &__pitch {
+    margin: 0 0 $space-4;
+    font-size: $font-size-base;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin: 0;
+  }
+}

@@ -9,4 +9,8 @@ import { profile } from '../../../core/data/profile';
 export class Footer {
   protected readonly profile = profile;
   protected readonly year = new Date().getFullYear();
+
+  protected hasLink(url: string | undefined): boolean {
+    return !!url;
+  }
 }

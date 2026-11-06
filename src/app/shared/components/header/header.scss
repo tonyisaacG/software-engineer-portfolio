@@ -116,16 +116,6 @@
       text-decoration: none;
     }
 
-    &--disabled {
-      color: var(--color-text-faint);
-      cursor: default;
-
-      &:hover {
-        color: var(--color-text-faint);
-        background-color: transparent;
-      }
-    }
-
     @include respond-to($breakpoint-md) {
       padding: $space-2 $space-2;
     }

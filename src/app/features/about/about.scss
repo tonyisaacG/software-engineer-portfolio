@@ -127,4 +127,73 @@
       margin: 0;
     }
   }
+
+  &__edu-list,
+  &__cert-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+  }
+
+  &__edu-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-1;
+    padding-block: $space-4;
+    border-bottom: 1px solid var(--color-rule);
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: $space-6;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__edu-credential {
+    margin: 0 0 $space-1;
+    font-size: $font-size-base;
+    font-weight: 600;
+  }
+
+  &__edu-institution {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: var(--color-text-muted);
+  }
+
+  &__edu-period {
+    white-space: nowrap;
+  }
+
+  &__cert-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $space-2 $space-6;
+    padding-block: $space-3;
+    border-bottom: 1px solid var(--color-rule);
+    font-size: $font-size-sm;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__cert-name {
+    color: var(--color-text);
+  }
 }

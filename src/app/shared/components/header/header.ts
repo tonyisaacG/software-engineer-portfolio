@@ -7,7 +7,6 @@ interface NavItem {
   label: string;
   href: string;
   index: string;
-  implemented: boolean;
 }
 
 @Component({
@@ -24,12 +23,10 @@ export class Header {
   protected readonly profile = profile;
 
   protected readonly navItems: NavItem[] = [
-    { label: 'About', href: '#about', index: '01', implemented: true },
-    { label: 'Experience', href: '#experience', index: '02', implemented: false },
-    { label: 'Projects', href: '#projects', index: '03', implemented: false },
-    { label: 'Case Studies', href: '#case-studies', index: '04', implemented: false },
-    { label: 'Writing', href: '#writing', index: '05', implemented: false },
-    { label: 'Contact', href: '#contact', index: '06', implemented: false },
+    { label: 'About', href: '#about', index: '01' },
+    { label: 'Experience', href: '#experience', index: '02' },
+    { label: 'Projects', href: '#projects', index: '03' },
+    { label: 'Contact', href: '#contact', index: '04' },
   ];
 
   protected toggleTheme(): void {

@@ -1,0 +1,32 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.contact {
+  scroll-margin-top: $header-height;
+  border-top: 1px solid var(--color-rule);
+
+  &__inner {
+    @include container;
+    padding-block: $space-9;
+    max-width: 52rem;
+  }
+
+  &__heading {
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    margin: $space-4 0 $space-5;
+    max-width: 20ch;
+  }
+
+  &__lede {
+    font-size: $font-size-lg;
+    color: var(--color-text-muted);
+    max-width: 38rem;
+    margin-bottom: $space-7;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+}

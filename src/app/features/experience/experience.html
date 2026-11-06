@@ -1,0 +1,52 @@
+<section class="experience" id="experience" aria-labelledby="experience-heading">
+  <div class="experience__inner">
+    <div class="experience__rail">
+      <span class="section-number">02</span>
+      <h2 class="display experience__rail-title" id="experience-heading">Experience</h2>
+      <p class="meta experience__rail-meta">
+        {{ profile.yearsExperience }} years building backend systems and business
+        applications.
+      </p>
+    </div>
+
+    <div class="experience__content">
+      @for (job of profile.experience; track job.company + job.period; let i = $index) {
+        <article class="experience__entry" [class.experience__entry--last]="i === profile.experience.length - 1">
+          <header class="experience__entry-head">
+            <p class="experience__period display">{{ job.period }}</p>
+            <div class="experience__entry-titles">
+              <h3 class="experience__role">{{ job.role }}</h3>
+              <p class="experience__company">
+                {{ job.company }}
+                @if (job.location) {
+                  <span class="meta"> · {{ job.location }}</span>
+                }
+              </p>
+            </div>
+          </header>
+
+          <p class="experience__summary">{{ job.summary }}</p>
+
+          <div class="experience__projects">
+            @for (project of job.projects; track project.name) {
+              <div class="experience__project">
+                <h4 class="experience__project-name">{{ project.name }}</h4>
+                <p class="experience__project-description">{{ project.description }}</p>
+                <ul class="experience__project-highlights">
+                  @for (highlight of project.highlights; track highlight) {
+                    <li>{{ highlight }}</li>
+                  }
+                </ul>
+                <ul class="experience__project-stack" aria-label="Technologies">
+                  @for (tech of project.stack; track tech) {
+                    <li class="stack-tag">{{ tech }}</li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="contact__inner">
+    <span class="section-number">04</span>
+    <h2 class="display contact__heading" id="contact-heading">
+      Let&rsquo;s build something reliable.
+    </h2>
+    <p class="contact__lede">
+      I&rsquo;m open to backend engineering roles and interesting collaboration.
+      The fastest way to reach me is email.
+    </p>
+    <div class="contact__actions">
+      <a class="btn btn--solid" [href]="'mailto:' + profile.email">
+        {{ profile.email }}
+      </a>
+      <a class="btn" [href]="profile.links.cv" download>Download CV</a>
+    </div>
+  </div>
+</section>

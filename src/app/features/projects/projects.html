@@ -1,0 +1,29 @@
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+  <div class="projects__inner">
+    <div class="projects__rail">
+      <span class="section-number">03</span>
+      <h2 class="display projects__rail-title" id="projects-heading">Selected Work</h2>
+      <p class="meta projects__rail-meta">
+        Personal and independent projects. Professional work is detailed under
+        Experience.
+      </p>
+    </div>
+
+    <ol class="projects__list">
+      @for (project of profile.projects; track project.name; let i = $index) {
+        <li class="projects__item">
+          <span class="projects__index" aria-hidden="true">{{ i + 1 | number: '2.0' }}</span>
+          <div class="projects__body">
+            <h3 class="projects__name">{{ project.name }}</h3>
+            <p class="projects__pitch">{{ project.pitch }}</p>
+            <ul class="projects__stack" aria-label="Technologies">
+              @for (tech of project.stack; track tech) {
+                <li class="stack-tag">{{ tech }}</li>
+              }
+            </ul>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

@@ -8,6 +8,15 @@
     <div class="site-footer__links">
       <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
       <a [href]="profile.links.cv" download>CV (PDF)</a>
+      @if (hasLink(profile.links.github)) {
+        <a [href]="profile.links.github" target="_blank" rel="noopener noreferrer">GitHub</a>
+      }
+      @if (hasLink(profile.links.linkedin)) {
+        <a [href]="profile.links.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      }
+      @if (hasLink(profile.links.hackerrank)) {
+        <a [href]="profile.links.hackerrank" target="_blank" rel="noopener noreferrer">HackerRank</a>
+      }
     </div>
 
     <p class="site-footer__copy">&copy; {{ year }} {{ profile.name }}. All rights reserved.</p>
