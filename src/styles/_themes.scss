@@ -1,59 +1,67 @@
 // Theme tokens exposed as CSS custom properties.
-// Light is the default; dark is applied via [data-theme='dark'] on <html>.
+// Light is default; dark is applied via [data-theme='dark'] on <html>.
 
 :root,
 [data-theme='light'] {
   color-scheme: light;
 
   --color-bg: #ffffff;
-  --color-bg-subtle: #f7f7f8;
-  --color-bg-header: rgba(255, 255, 255, 0.85);
+  --color-bg-subtle: #f3f5f8;
+  --color-bg-header: rgba(255, 255, 255, 0.9);
   --color-surface: #ffffff;
-  --color-border: #e4e4e7;
-  --color-border-strong: #d4d4d8;
+  --color-surface-hover: #f8fafc;
+  --color-border: #e2e5eb;
+  --color-border-strong: #cdd2dc;
 
-  --color-text: #18181b;
-  --color-text-muted: #52525b;
-  --color-text-faint: #71717a;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-faint: #64748b;
 
-  --color-accent: #1a3a6b;
-  --color-accent-hover: #0f2550;
-  --color-accent-subtle: #eef2f8;
-  --color-accent-2: #8a6d3b;
+  --color-accent: #0284c7;
+  --color-accent-hover: #0369a1;
+  --color-accent-subtle: #e0f2fe;
+  --color-accent-2: #6366f1;
 
-  --color-rule: #d9d9de;
-  --color-rule-strong: #b9b9c0;
+  --color-rule: #e2e5eb;
+  --color-rule-strong: #cdd2dc;
 
-  --color-focus-ring: #1a3a6b;
+  --color-focus-ring: #0284c7;
+  --color-status-online: #10b981;
+  --color-status-pulse: rgba(16, 185, 129, 0.25);
 
   --shadow-header: 0 1px 0 0 var(--color-border);
-  --shadow-lift: 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  --shadow-card: 0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 3px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lift: 0 14px 28px -6px rgba(15, 23, 42, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.06);
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --color-bg: #0c0c0e;
-  --color-bg-subtle: #141417;
-  --color-bg-header: rgba(12, 12, 14, 0.85);
-  --color-surface: #17171a;
-  --color-border: #27272a;
-  --color-border-strong: #3f3f46;
+  --color-bg: #09090c;
+  --color-bg-subtle: #13131a;
+  --color-bg-header: rgba(9, 9, 12, 0.9);
+  --color-surface: #171722;
+  --color-surface-hover: #1f1f2e;
+  --color-border: #282838;
+  --color-border-strong: #3a3a4e;
 
-  --color-text: #f4f4f5;
-  --color-text-muted: #a1a1aa;
-  --color-text-faint: #71717a;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-faint: #64748b;
 
-  --color-accent: #d4af7a;
-  --color-accent-hover: #e3c493;
-  --color-accent-subtle: #2a2118;
-  --color-accent-2: #c9a86a;
+  --color-accent: #38bdf8;
+  --color-accent-hover: #7dd3fc;
+  --color-accent-subtle: #082f49;
+  --color-accent-2: #818cf8;
 
-  --color-rule: #2e2e33;
-  --color-rule-strong: #45454d;
+  --color-rule: #232332;
+  --color-rule-strong: #333345;
 
-  --color-focus-ring: #d4af7a;
+  --color-focus-ring: #38bdf8;
+  --color-status-online: #34d399;
+  --color-status-pulse: rgba(52, 211, 153, 0.25);
 
   --shadow-header: 0 1px 0 0 var(--color-border);
-  --shadow-lift: 0 12px 32px -12px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 16px 36px -4px rgba(0, 0, 0, 0.65);
 }

@@ -2,198 +2,191 @@
 @use 'mixins' as *;
 
 .about {
-  scroll-margin-top: $header-height;
+  padding-block: $space-8;
+  border-bottom: 1px solid var(--color-border);
 
   &__inner {
     @include container;
+  }
+
+  &__narrative-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $space-6;
-    padding-block: $space-8 $space-9;
+    margin-bottom: $space-8;
 
     @include respond-to($breakpoint-lg) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
-      gap: $space-9;
+      grid-template-columns: 1.15fr 1fr;
+      gap: $space-8;
     }
   }
 
-  &__rail {
-    @include respond-to($breakpoint-lg) {
-      position: sticky;
-      top: calc(#{$header-height} + #{$space-6});
-      align-self: start;
-    }
+  &__subheading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 $space-3;
+    color: var(--color-text);
   }
 
-  &__rail-title {
-    font-size: $font-size-display-sm;
-    margin: $space-3 0 $space-4;
-  }
-
-  &__rail-meta {
-    max-width: 16rem;
-  }
-
-  &__content {
-    max-width: 46rem;
-  }
-
-  &__lede {
-    font-size: $font-size-lg;
+  &__text {
+    font-size: 1.025rem;
+    line-height: 1.8;
     color: var(--color-text-muted);
-    margin-bottom: $space-8;
-  }
-
-  &__block {
-    margin-bottom: $space-8;
-    padding-top: $space-6;
-    border-top: 1px solid var(--color-rule);
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__block-title {
-    font-size: $font-size-sm;
+  &__philosophy-box {
+    padding: $space-5 $space-6;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: $radius-sm;
+  }
+
+  &__quote {
+    margin: 0 0 $space-4;
+    font-size: 0.975rem;
+    line-height: 1.75;
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  &__sublabel {
+    font-family: $font-family-mono;
+    font-size: 0.775rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--color-text-faint);
-    margin-bottom: $space-5;
+    margin: 0 0 $space-2;
   }
 
   &__focus-list {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: 1fr 1fr;
-      column-gap: $space-8;
-    }
+    gap: 0.4rem;
   }
 
   &__focus-item {
-    padding-block: $space-4;
-    border-bottom: 1px solid var(--color-rule);
-  }
-
-  &__focus-title {
-    margin: 0 0 $space-1;
-    font-size: $font-size-base;
-    font-weight: 600;
-  }
-
-  &__focus-description {
-    margin: 0;
-    font-size: $font-size-sm;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: $space-2;
   }
 
-  &__interests {
+  &__bullet {
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  &__skills-section {
+    margin-bottom: $space-8;
+    padding-top: $space-5;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  &__skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-5;
+    margin-top: $space-4;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__skill-group {
+    padding: $space-4;
+    border-radius: $radius-sm;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  &__skill-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: $space-3;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+    }
+  }
+
+  &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: $space-2 $space-5;
+    gap: $space-2;
+  }
 
-    li {
-      font-size: $font-size-sm;
-      color: var(--color-text-muted);
-      padding-left: $space-4;
-      position: relative;
+  &__meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+    padding-top: $space-5;
+    border-top: 1px solid var(--color-rule);
 
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0.6em;
-        width: 0.4rem;
-        height: 1px;
-        background-color: var(--color-accent-2);
-      }
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-8;
     }
   }
 
-  &__quote {
-    margin: 0;
-    padding-left: $space-5;
-    border-left: 2px solid var(--color-accent-2);
-
-    p {
-      font-family: $font-family-display;
-      font-size: $font-size-xl;
-      line-height: 1.45;
-      color: var(--color-text);
-      margin: 0;
-    }
+  &__meta-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 $space-4;
+    padding-bottom: $space-2;
+    border-bottom: 1px solid var(--color-rule);
   }
 
   &__edu-list,
   &__cert-list {
     display: grid;
-    gap: 0;
-    margin: 0;
-  }
-
-  &__edu-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $space-1;
-    padding-block: $space-4;
-    border-bottom: 1px solid var(--color-rule);
-
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: 1fr auto;
-      align-items: baseline;
-      gap: $space-6;
-    }
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+    gap: $space-4;
   }
 
   &__edu-credential {
-    margin: 0 0 $space-1;
-    font-size: $font-size-base;
+    font-size: 0.95rem;
     font-weight: 600;
+    margin: 0 0 0.2rem;
   }
 
   &__edu-institution {
-    margin: 0;
-    font-size: $font-size-sm;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
+    margin: 0 0 0.2rem;
   }
 
   &__edu-period {
-    white-space: nowrap;
+    font-family: $font-family-mono;
+    font-size: 0.775rem;
   }
 
   &__cert-item {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: $space-2 $space-6;
-    padding-block: $space-3;
-    border-bottom: 1px solid var(--color-rule);
-    font-size: $font-size-sm;
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+    flex-direction: column;
+    gap: 0.2rem;
   }
 
   &__cert-name {
-    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 }

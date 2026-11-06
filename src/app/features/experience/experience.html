@@ -1,51 +1,87 @@
 <section class="experience" id="experience" aria-labelledby="experience-heading">
   <div class="experience__inner">
-    <div class="experience__rail">
-      <span class="section-number">02</span>
-      <h2 class="display experience__rail-title" id="experience-heading">Experience</h2>
-      <p class="meta experience__rail-meta">
-        {{ profile.yearsExperience }} years building backend systems and business
-        applications.
+    <!-- Section Header on TOP -->
+    <header class="section-header">
+      <div class="section-header__badge">02 · Work History</div>
+      <h2 class="section-header__title" id="experience-heading">Professional Experience</h2>
+      <p class="section-header__subtitle">
+        {{ profile.yearsExperience }} engineering enterprise software, backend services, and multi-tenant architectures.
       </p>
-    </div>
+    </header>
 
-    <div class="experience__content">
-      @for (job of profile.experience; track job.company + job.period; let i = $index) {
-        <article class="experience__entry" [class.experience__entry--last]="i === profile.experience.length - 1">
-          <header class="experience__entry-head">
-            <p class="experience__period display">{{ job.period }}</p>
-            <div class="experience__entry-titles">
+    <div class="experience__timeline">
+      @for (job of profile.experience; track job.company + job.period) {
+        <div class="experience__item">
+          <!-- Role & Company Bar -->
+          <div class="experience__item-header">
+            <div class="experience__item-titles">
+              <span class="eyebrow experience__company">{{ job.company }}</span>
               <h3 class="experience__role">{{ job.role }}</h3>
-              <p class="experience__company">
-                {{ job.company }}
-                @if (job.location) {
-                  <span class="meta"> · {{ job.location }}</span>
-                }
-              </p>
+              @if (job.location) {
+                <span class="meta experience__location">{{ job.location }}</span>
+              }
             </div>
-          </header>
+            <div class="experience__period">
+              <span>{{ job.period }}</span>
+            </div>
+          </div>
 
           <p class="experience__summary">{{ job.summary }}</p>
 
-          <div class="experience__projects">
-            @for (project of job.projects; track project.name) {
-              <div class="experience__project">
-                <h4 class="experience__project-name">{{ project.name }}</h4>
-                <p class="experience__project-description">{{ project.description }}</p>
-                <ul class="experience__project-highlights">
-                  @for (highlight of project.highlights; track highlight) {
-                    <li>{{ highlight }}</li>
-                  }
-                </ul>
-                <ul class="experience__project-stack" aria-label="Technologies">
-                  @for (tech of project.stack; track tech) {
-                    <li class="stack-tag">{{ tech }}</li>
-                  }
-                </ul>
+          <!-- Core Areas of Responsibility -->
+          @if (job.areas && job.areas.length > 0) {
+            <div class="experience__areas-block">
+              <h4 class="experience__subheading">Core Engineering Areas</h4>
+              <div class="experience__areas-grid">
+                @for (area of job.areas; track area.title) {
+                  <div class="experience__area-pill">
+                    <span class="experience__area-title">{{ area.title }}:</span>
+                    <span class="experience__area-desc">{{ area.description }}</span>
+                  </div>
+                }
               </div>
-            }
+            </div>
+          }
+
+          <!-- Major Enterprise Systems Shipped -->
+          <div class="experience__projects-block">
+            <h4 class="experience__subheading">
+              {{ job.projects.length > 1 ? 'Major Production Systems Shipped' : 'Production System Shipped' }}
+            </h4>
+            <div class="experience__systems-grid" [class.experience__systems-grid--single]="job.projects.length === 1">
+              @for (project of job.projects; track project.name) {
+                <div class="experience__system-card">
+                  <div class="experience__system-main">
+                    <div class="experience__system-head">
+                      <h5 class="experience__system-name">{{ project.name }}</h5>
+                      <span class="experience__domain-tag">{{ project.domain }}</span>
+                    </div>
+
+                    <p class="experience__system-desc">{{ project.description }}</p>
+
+                    <ul class="experience__highlights-list">
+                      @for (highlight of project.highlights; track highlight) {
+                        <li>
+                          <span class="experience__bullet" aria-hidden="true">✔</span>
+                          <span>{{ highlight }}</span>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+
+                  <div class="experience__system-side">
+                    <span class="experience__stack-label">Technologies Used</span>
+                    <ul class="experience__system-stack" aria-label="Technologies used">
+                      @for (tech of project.stack; track tech) {
+                        <li class="stack-tag">{{ tech }}</li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              }
+            </div>
           </div>
-        </article>
+        </div>
       }
     </div>
   </div>

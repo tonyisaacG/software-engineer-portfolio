@@ -1,29 +1,58 @@
 <section class="projects" id="projects" aria-labelledby="projects-heading">
   <div class="projects__inner">
-    <div class="projects__rail">
-      <span class="section-number">03</span>
-      <h2 class="display projects__rail-title" id="projects-heading">Selected Work</h2>
-      <p class="meta projects__rail-meta">
-        Personal and independent projects. Professional work is detailed under
-        Experience.
+    <!-- Section Header on TOP -->
+    <header class="section-header">
+      <div class="section-header__badge">03 · Projects</div>
+      <h2 class="section-header__title" id="projects-heading">Selected Projects & Systems</h2>
+      <p class="section-header__subtitle">
+        Production enterprise platforms, middleware engines, and mobile architectures.
       </p>
-    </div>
+    </header>
 
-    <ol class="projects__list">
-      @for (project of profile.projects; track project.name; let i = $index) {
-        <li class="projects__item">
-          <span class="projects__index" aria-hidden="true">{{ i + 1 | number: '2.0' }}</span>
-          <div class="projects__body">
-            <h3 class="projects__name">{{ project.name }}</h3>
-            <p class="projects__pitch">{{ project.pitch }}</p>
-            <ul class="projects__stack" aria-label="Technologies">
-              @for (tech of project.stack; track tech) {
-                <li class="stack-tag">{{ tech }}</li>
-              }
-            </ul>
-          </div>
-        </li>
-      }
-    </ol>
+    <div class="projects__content">
+      <div class="projects__grid">
+        @for (project of profile.projects; track project.name; let i = $index) {
+          <article class="projects__card card">
+            <header class="projects__card-head">
+              <div class="projects__badge-row">
+                <span class="projects__index" aria-hidden="true">{{ i + 1 | number: '2.0' }}</span>
+                <span class="projects__category-badge" [class.projects__category-badge--enterprise]="project.category === 'Enterprise Production'">
+                  {{ project.category }}
+                </span>
+              </div>
+              <h3 class="projects__name">{{ project.name }}</h3>
+              <p class="projects__domain">{{ project.domain }}</p>
+            </header>
+
+            <div class="projects__body">
+              <p class="projects__pitch">{{ project.pitch }}</p>
+
+              <div class="projects__arch-block">
+                <h4 class="projects__arch-label">Engineering Focus:</h4>
+                <p class="projects__arch-details">{{ project.architectureDetails }}</p>
+              </div>
+
+              <div class="projects__footer">
+                <ul class="projects__stack" aria-label="Technologies">
+                  @for (tech of project.stack; track tech) {
+                    <li class="stack-tag">{{ tech }}</li>
+                  }
+                </ul>
+
+                @if (project.links && project.links.length > 0) {
+                  <div class="projects__links">
+                    @for (link of project.links; track link.url) {
+                      <a class="projects__link-btn" [href]="link.url">
+                        {{ link.label }} →
+                      </a>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
   </div>
 </section>

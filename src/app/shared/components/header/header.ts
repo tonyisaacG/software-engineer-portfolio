@@ -26,7 +26,7 @@ export class Header {
     { label: 'About', href: '#about', index: '01' },
     { label: 'Experience', href: '#experience', index: '02' },
     { label: 'Projects', href: '#projects', index: '03' },
-    { label: 'Contact', href: '#contact', index: '04' },
+    { label: 'Connect', href: '#contact', index: '04' },
   ];
 
   protected toggleTheme(): void {

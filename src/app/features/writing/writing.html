@@ -1,0 +1,162 @@
+<section class="writing" id="writing" aria-labelledby="writing-heading">
+  <div class="writing__inner">
+    <!-- Section Header on TOP -->
+    <header class="section-header">
+      <div class="section-header__badge">04 · Publications & Newsletter</div>
+      <h2 class="section-header__title" id="writing-heading">Technical Writing & Newsletter</h2>
+      <p class="section-header__subtitle">
+        In-depth essays on backend architecture, database performance, and real-world lessons from production systems.
+      </p>
+    </header>
+
+    <!-- Horizontal Newsletter Banner Full Width -->
+    <div class="writing__newsletter-banner card">
+      <div class="writing__newsletter-info">
+        <span class="eyebrow">Engineering Newsletter</span>
+        <h3 class="writing__newsletter-title">The Pragmatic .NET Dispatch</h3>
+        <p class="writing__newsletter-copy">
+          Subscribe to receive deep dives on ASP.NET Core internals, database query tuning, Clean Architecture, and system design.
+        </p>
+      </div>
+
+      <div class="writing__newsletter-action">
+        @if (subscriptionStatus() === 'success') {
+          <div class="writing__newsletter-success">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Subscribed successfully! Welcome aboard.</span>
+          </div>
+        } @else {
+          <form class="writing__form" (submit)="onSubscribe($event)">
+            <label for="newsletter-email" class="visually-hidden">Your Email</label>
+            <div class="writing__form-row">
+              <input
+                id="newsletter-email"
+                type="email"
+                name="email"
+                placeholder="engineer@company.com"
+                class="writing__input"
+                [ngModel]="subscriberEmail()"
+                (ngModelChange)="subscriberEmail.set($event)"
+                required
+              />
+              <button type="submit" class="btn btn--solid writing__submit">
+                Subscribe
+              </button>
+            </div>
+            @if (subscriptionStatus() === 'error') {
+              <p class="writing__newsletter-error">Please enter a valid email address.</p>
+            }
+          </form>
+        }
+      </div>
+    </div>
+
+    <!-- Articles Grid Full Width -->
+    <div class="writing__content">
+      <div class="writing__articles-grid">
+        @for (article of articles; track article.slug) {
+          <article class="writing__article-card card" (click)="openArticle(article)" (keydown.enter)="openArticle(article)" tabindex="0" role="button" [attr.aria-label]="'Read article: ' + article.title">
+            <header class="writing__card-header">
+              <div class="writing__card-meta">
+                <span class="writing__category">{{ article.category }}</span>
+                <span class="writing__dot" aria-hidden="true">·</span>
+                <span class="meta">{{ article.date }}</span>
+                <span class="writing__dot" aria-hidden="true">·</span>
+                <span class="meta">{{ article.readingTime }}</span>
+              </div>
+              <h3 class="writing__title">{{ article.title }}</h3>
+            </header>
+
+            <p class="writing__summary">{{ article.summary }}</p>
+
+            <div class="writing__card-footer">
+              <ul class="writing__tags" aria-label="Tags">
+                @for (tag of article.tags; track tag) {
+                  <li class="stack-tag">{{ tag }}</li>
+                }
+              </ul>
+
+              <span class="writing__read-link">
+                Read Deep Dive <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Article Reader Modal -->
+@if (activeArticle(); as article) {
+  <div class="reader-modal" role="dialog" aria-modal="true" [attr.aria-labelledby]="'reader-title-' + article.slug">
+    <div class="reader-modal__backdrop" (click)="closeArticle()"></div>
+
+    <div class="reader-modal__container">
+      <header class="reader-modal__head">
+        <div class="reader-modal__head-meta">
+          <span class="eyebrow">{{ article.category }}</span>
+          <span class="meta">· {{ article.date }} · {{ article.readingTime }}</span>
+        </div>
+        <button type="button" class="reader-modal__close-btn" (click)="closeArticle()" aria-label="Close article reader">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </header>
+
+      <div class="reader-modal__body">
+        <h1 class="reader-modal__title" [id]="'reader-title-' + article.slug">{{ article.title }}</h1>
+        <p class="reader-modal__lede">{{ article.summary }}</p>
+
+        <hr class="rule" />
+
+        @for (section of article.sections; track section.heading) {
+          <section class="reader-modal__section">
+            <h2 class="reader-modal__section-heading">{{ section.heading }}</h2>
+            <p class="reader-modal__text">{{ section.body }}</p>
+
+            @if (section.callout) {
+              <aside class="reader-modal__callout">
+                <p>{{ section.callout }}</p>
+              </aside>
+            }
+
+            @if (section.codeSnippet; as snippet) {
+              <div class="reader-modal__code-block">
+                @if (snippet.caption) {
+                  <div class="reader-modal__code-caption">{{ snippet.caption }}</div>
+                }
+                <pre class="reader-modal__code"><code>{{ snippet.code }}</code></pre>
+              </div>
+            }
+          </section>
+        }
+
+        @if (article.takeaways && article.takeaways.length > 0) {
+          <section class="reader-modal__takeaways card">
+            <h3 class="reader-modal__takeaways-title">Key Architectural Takeaways</h3>
+            <ul class="reader-modal__takeaways-list">
+              @for (item of article.takeaways; track item) {
+                <li>
+                  <span class="reader-modal__bullet" aria-hidden="true">✓</span>
+                  <span>{{ item }}</span>
+                </li>
+              }
+            </ul>
+          </section>
+        }
+
+        <div class="reader-modal__footer-cta card">
+          <h3 class="reader-modal__cta-title">Enjoyed this technical breakdown?</h3>
+          <p class="reader-modal__cta-copy">
+            Subscribe to <strong>The Pragmatic .NET Dispatch</strong> to receive practical backend architectural deep dives directly in your inbox.
+          </p>
+          <button type="button" class="btn btn--solid" (click)="closeArticle()">Back to Portfolio</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

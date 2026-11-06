@@ -2,103 +2,135 @@
 @use 'mixins' as *;
 
 .projects {
-  scroll-margin-top: $header-height;
-  border-top: 1px solid var(--color-rule);
+  padding-block: $space-8;
+  border-bottom: 1px solid var(--color-border);
 
   &__inner {
     @include container;
+  }
+
+  &__content {
+    display: grid;
+  }
+
+  &__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $space-6;
-    padding-block: $space-8 $space-9;
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
-      gap: $space-9;
-    }
-  }
-
-  &__rail {
-    @include respond-to($breakpoint-lg) {
-      position: sticky;
-      top: calc(#{$header-height} + #{$space-6});
-      align-self: start;
-    }
-  }
-
-  &__rail-title {
-    font-size: $font-size-display-sm;
-    margin: $space-3 0 $space-4;
-  }
-
-  &__rail-meta {
-    max-width: 16rem;
-  }
-
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 52rem;
-  }
-
-  &__item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: $space-5;
-    padding-block: $space-6;
-    border-bottom: 1px solid var(--color-rule);
-    transition: transform 160ms ease;
 
     @include respond-to($breakpoint-md) {
-      grid-template-columns: 4rem 1fr;
-      gap: $space-7;
-
-      &:hover {
-        transform: translateX(4px);
-      }
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    &:first-child {
-      padding-top: 0;
-    }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $space-4;
+  }
 
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
+  &__badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $space-3;
   }
 
   &__index {
     font-family: $font-family-mono;
-    font-size: $font-size-sm;
-    color: var(--color-accent-2);
-    letter-spacing: 0.08em;
-    padding-top: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent);
   }
 
-  &__body {
-    min-width: 0;
+  &__category-badge {
+    font-family: $font-family-mono;
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+
+    &--enterprise {
+      background-color: var(--color-accent-subtle);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
   }
 
   &__name {
-    margin: 0 0 $space-2;
-    font-size: $font-size-xl;
-    font-weight: 650;
-    letter-spacing: -0.01em;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 $space-1;
+    color: var(--color-text);
+  }
+
+  &__domain {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
   }
 
   &__pitch {
-    margin: 0 0 $space-4;
-    font-size: $font-size-base;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--color-text-muted);
-    max-width: 40rem;
+    margin: 0 0 $space-4;
+  }
+
+  &__arch-block {
+    background-color: var(--color-bg-subtle);
+    padding: $space-4;
+    border-radius: $radius-sm;
+    border-left: 2px solid var(--color-accent);
+    margin-bottom: $space-4;
+  }
+
+  &__arch-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-faint);
+    margin: 0 0 $space-1;
+  }
+
+  &__arch-details {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
   }
 
   &__stack {
     display: flex;
     flex-wrap: wrap;
     gap: $space-2;
-    margin: 0;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+    padding-top: $space-2;
+  }
+
+  &__link-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

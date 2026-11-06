@@ -2,159 +2,264 @@
 @use 'mixins' as *;
 
 .experience {
-  scroll-margin-top: $header-height;
-  border-top: 1px solid var(--color-rule);
+  padding-block: $space-8;
+  border-bottom: 1px solid var(--color-border);
 
   &__inner {
     @include container;
+  }
+
+  &__timeline {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: $space-6;
-    padding-block: $space-8 $space-9;
-
-    @include respond-to($breakpoint-lg) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
-      gap: $space-9;
-    }
+    gap: $space-8;
   }
 
-  &__rail {
-    @include respond-to($breakpoint-lg) {
-      position: sticky;
-      top: calc(#{$header-height} + #{$space-6});
-      align-self: start;
-    }
-  }
-
-  &__rail-title {
-    font-size: $font-size-display-sm;
-    margin: $space-3 0 $space-4;
-  }
-
-  &__rail-meta {
-    max-width: 16rem;
-  }
-
-  &__content {
-    max-width: 52rem;
-  }
-
-  &__entry {
-    padding-block: $space-7;
+  &__item {
+    display: grid;
+    gap: $space-5;
+    padding-bottom: $space-7;
     border-bottom: 1px solid var(--color-rule);
-    transition: transform 160ms ease;
 
-    @include respond-to($breakpoint-md) {
-      &:hover {
-        transform: translateY(-2px);
-      }
-    }
-
-    &--last {
-      border-bottom: none;
+    &:last-child {
       padding-bottom: 0;
+      border-bottom: none;
     }
   }
 
-  &__entry-head {
-    display: grid;
-    grid-template-columns: 1fr;
+  &__item-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: $space-3;
-    margin-bottom: $space-4;
-
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: minmax(9rem, 12rem) 1fr;
-      gap: $space-6;
-      align-items: start;
-    }
-  }
-
-  &__period {
-    font-size: $font-size-lg;
-    color: var(--color-accent-2);
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  &__entry-titles {
-    min-width: 0;
-  }
-
-  &__role {
-    margin: 0 0 $space-1;
-    font-size: $font-size-xl;
-    font-weight: 650;
-    letter-spacing: -0.01em;
   }
 
   &__company {
-    margin: 0;
-    font-size: $font-size-base;
-    color: var(--color-text-muted);
+    display: inline-block;
+    margin-bottom: $space-1;
+  }
+
+  &__role {
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    margin: 0 0 $space-1;
+    color: var(--color-text);
+  }
+
+  &__location {
+    font-size: 0.9rem;
+  }
+
+  &__period {
+    font-family: $font-family-mono;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
   }
 
   &__summary {
-    font-size: $font-size-base;
+    font-size: 1.05rem;
+    line-height: 1.8;
     color: var(--color-text-muted);
-    max-width: 44rem;
-    margin-bottom: $space-6;
+    max-width: 52rem;
+    margin: 0;
   }
 
-  &__projects {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $space-6;
+  &__subheading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 $space-4;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: $space-2;
 
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: 1fr 1fr;
-      column-gap: $space-8;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+      background-color: var(--color-accent);
     }
   }
 
-  &__project {
-    padding-top: $space-5;
-    border-top: 1px solid var(--color-rule);
+  &__areas-block {
+    padding-top: $space-2;
   }
 
-  &__project-name {
-    margin: 0 0 $space-2;
-    font-size: $font-size-base;
-    font-weight: 650;
+  &__areas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
   }
 
-  &__project-description {
-    margin: 0 0 $space-3;
-    font-size: $font-size-sm;
+  &__area-pill {
+    padding: $space-3 $space-4;
+    border-radius: $radius-sm;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  &__area-title {
+    font-weight: 700;
+    color: var(--color-text);
+    margin-right: 0.35rem;
+  }
+
+  &__area-desc {
     color: var(--color-text-muted);
   }
 
-  &__project-highlights {
-    margin: 0 0 $space-4;
+  &__projects-block {
+    padding-top: $space-4;
+  }
+
+  &__systems-grid {
     display: grid;
-    gap: $space-2;
+    grid-template-columns: 1fr;
+    gap: $space-5;
+    width: 100%;
 
-    li {
-      position: relative;
-      padding-left: $space-5;
-      font-size: $font-size-sm;
-      color: var(--color-text-muted);
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0.55em;
-        width: 0.4rem;
-        height: 1px;
-        background-color: var(--color-accent-2);
+    &--single {
+      @include respond-to($breakpoint-lg) {
+        grid-template-columns: 1fr;
+      }
+
+      .experience__system-card {
+        width: 100%;
+
+        @include respond-to($breakpoint-md) {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          gap: $space-6;
+          align-items: start;
+        }
+      }
+
+      .experience__system-side {
+        border-top: none;
+        padding-top: 0;
+
+        @include respond-to($breakpoint-md) {
+          border-left: 1px solid var(--color-rule);
+          padding-left: $space-6;
+          height: 100%;
+        }
+      }
+
+      .experience__system-stack {
+        border-top: none;
+        padding-top: 0;
       }
     }
   }
 
-  &__project-stack {
+  &__system-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-sm;
+    padding: $space-5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 160ms ease;
+
+    &:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lift);
+    }
+  }
+
+  &__system-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__system-side {
+    padding-top: $space-4;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  &__stack-label {
+    display: block;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-faint);
+    margin-bottom: $space-2;
+  }
+
+  &__system-head {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    margin-bottom: $space-3;
+  }
+
+  &__system-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  &__domain-tag {
+    font-family: $font-family-mono;
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: var(--color-text-faint);
+  }
+
+  &__system-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    margin: 0 0 $space-4;
+  }
+
+  &__highlights-list {
+    display: grid;
+    gap: $space-2;
+    margin: 0 0 $space-4;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-2;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--color-text);
+    }
+  }
+
+  &__bullet {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  &__system-stack {
     display: flex;
     flex-wrap: wrap;
     gap: $space-2;
-    margin: 0;
   }
 }
