@@ -19,6 +19,15 @@ export class Contact {
   protected readonly formSubmitted = signal(false);
   protected readonly submitError = signal<string | null>(null);
 
+  private successTimeoutId?: ReturnType<typeof setTimeout>;
+
+  protected dismissSuccess(): void {
+    if (this.successTimeoutId) {
+      clearTimeout(this.successTimeoutId);
+    }
+    this.formSubmitted.set(false);
+  }
+
   protected copyEmail(): void {
     navigator.clipboard.writeText(this.profile.email).then(() => {
       this.copiedEmail.set(true);
@@ -64,6 +73,13 @@ export class Contact {
         this.senderName.set('');
         this.senderEmail.set('');
         this.senderMessage.set('');
+
+        if (this.successTimeoutId) {
+          clearTimeout(this.successTimeoutId);
+        }
+        this.successTimeoutId = setTimeout(() => {
+          this.formSubmitted.set(false);
+        }, 30000);
       } else {
         throw new Error(data.message || 'Submission failed');
       }
