@@ -5,9 +5,49 @@
       <div class="section-header__badge">04 · Connect With Me</div>
       <h2 class="section-header__title" id="contact-heading">Connect With Me</h2>
       <p class="section-header__subtitle">
-        I am open to software engineering opportunities, backend consulting projects, and technical collaboration.
+        I am actively available for new full-time software engineering roles, contract projects, and technical collaboration.
       </p>
     </header>
+
+    <!-- Scope of Collaboration & Availability Banner -->
+    <div class="contact__work-scope card">
+      <div class="contact__scope-head">
+        <span class="eyebrow">Availability & Collaboration</span>
+        <h3 class="contact__scope-title">How I Can Help Your Team or Business</h3>
+      </div>
+
+      <div class="contact__scope-grid">
+        <div class="contact__scope-item">
+          <div class="contact__scope-icon" aria-hidden="true">🚀</div>
+          <div class="contact__scope-body">
+            <h4 class="contact__scope-name">Building New Projects</h4>
+            <p class="contact__scope-desc">
+              Designing and developing robust backend systems from scratch, architecting RESTful APIs, modeling relational databases, and delivering clean full-stack solutions with .NET and Angular.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact__scope-item">
+          <div class="contact__scope-icon" aria-hidden="true">⚙️</div>
+          <div class="contact__scope-body">
+            <h4 class="contact__scope-name">Working with Legacy Projects</h4>
+            <p class="contact__scope-desc">
+              Diving into existing codebases to analyze workflows, investigate data integrity bugs, optimize slow SQL queries, eliminate technical debt, and refactor toward Clean Architecture.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact__scope-item">
+          <div class="contact__scope-icon" aria-hidden="true">🤝</div>
+          <div class="contact__scope-body">
+            <h4 class="contact__scope-name">Team Co-Building & Integrations</h4>
+            <p class="contact__scope-desc">
+              Collaborating within engineering teams to implement third-party integrations (tax portals, POS, ERPs), build automated background worker pipelines, and support production systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="contact__layout">
       <!-- Left Column: Direct Connection Channels -->
@@ -20,7 +60,7 @@
             </svg>
           </div>
           <div class="contact__channel-info">
-            <span class="contact__channel-label">Email Address</span>
+            <span class="contact__channel-label">Direct Email (Primary)</span>
             <a [href]="'mailto:' + profile.email" class="contact__channel-value">{{ profile.email }}</a>
           </div>
           <button type="button" class="contact__copy-btn" (click)="copyEmail()" [attr.aria-label]="copiedEmail() ? 'Copied' : 'Copy email to clipboard'">
@@ -42,7 +82,7 @@
             </svg>
           </div>
           <div class="contact__channel-info">
-            <span class="contact__channel-label">Phone & WhatsApp</span>
+            <span class="contact__channel-label">Instant Chat</span>
             <a href="https://wa.me/201225609831" target="_blank" rel="noopener noreferrer" class="contact__channel-value">
               {{ profile.phone }}
             </a>
@@ -60,15 +100,15 @@
             </svg>
           </div>
           <div class="contact__channel-info">
-            <span class="contact__channel-label">Location & Timezone</span>
+            <span class="contact__channel-label">Location & Working Modes</span>
             <span class="contact__channel-text">{{ profile.location }} (GMT+2)</span>
-            <span class="meta">Available for remote overlap & international roles</span>
+            <span class="meta">Available for remote overlap, freelance contracts & international roles</span>
           </div>
         </div>
 
         <!-- Social Links & CV -->
         <div class="contact__social-box card">
-          <span class="contact__social-heading">Profiles & CV</span>
+          <span class="contact__social-heading">Verified Profiles & Résumé</span>
           <div class="contact__social-row">
             @if (profile.links.linkedin) {
               <a [href]="profile.links.linkedin" target="_blank" rel="noopener noreferrer" class="btn">
@@ -95,11 +135,11 @@
         </div>
       </div>
 
-      <!-- Right Column: Interactive Send Message Form -->
+      <!-- Right Column: Direct Message Form -->
       <div class="contact__form-container card">
         <h3 class="contact__form-title">Send a Direct Message</h3>
         <p class="contact__form-subtitle">
-          Have an opportunity or question? Fill in your details below and it will open directly in your mail client.
+          Have an engineering role or a project in mind? Enter your details below. Your message will be addressed directly to <strong>{{ profile.email }}</strong>.
         </p>
 
         @if (formSubmitted()) {
@@ -107,7 +147,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
-            <span>Message prepared! Opening your mail client...</span>
+            <span>Message prepared for delivery to {{ profile.email }}!</span>
           </div>
         }
 
@@ -145,9 +185,9 @@
             <textarea
               id="contact-message"
               name="message"
-              rows="4"
+              rows="5"
               class="contact__input contact__textarea"
-              placeholder="Tell me about your team, tech stack, or project..."
+              placeholder="Tell me about your project, team requirements, or legacy codebase challenges..."
               [ngModel]="senderMessage()"
               (ngModelChange)="senderMessage.set($event)"
               required
@@ -155,7 +195,7 @@
           </div>
 
           <button type="submit" class="btn btn--solid contact__submit-btn">
-            Send Message
+            Send Message to Antony →
           </button>
         </form>
       </div>

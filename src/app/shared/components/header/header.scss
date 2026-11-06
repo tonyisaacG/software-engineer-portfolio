@@ -2,13 +2,17 @@
 @use 'mixins' as *;
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: var(--color-bg-header);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 14px -2px rgba(0, 0, 0, 0.06);
   transition: background-color 200ms ease, border-color 200ms ease;
 
   &__inner {
@@ -23,10 +27,8 @@
   &__brand {
     display: inline-flex;
     align-items: center;
-    gap: $space-3;
+    gap: 0.75rem;
     color: var(--color-text);
-    font-weight: 650;
-    letter-spacing: -0.01em;
     min-height: 44px;
 
     &:hover {
@@ -39,27 +41,32 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid var(--color-border-strong);
+    width: 2.25rem;
+    height: 2.25rem;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
     border-radius: $radius-sm;
-    font-size: $font-size-sm;
-    font-weight: 700;
-    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: #ffffff;
     font-family: $font-family-mono;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
   }
 
   &__name {
     font-family: $font-family-display;
-    font-size: $font-size-lg;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
   }
 
   &__index {
     font-family: $font-family-mono;
-    font-size: 0.6875rem;
-    color: var(--color-accent-2);
-    margin-right: $space-2;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-right: 0.35rem;
   }
 
   &__nav {
@@ -96,29 +103,35 @@
     @include respond-to($breakpoint-md) {
       flex-direction: row;
       align-items: center;
-      gap: $space-5;
+      gap: 0.25rem;
+      background-color: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: 9999px;
+      padding: 0.25rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
   }
 
   &__link {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
-    padding: $space-2 $space-3;
-    border-radius: $radius-sm;
+    padding: 0.45rem 1rem;
+    border-radius: 9999px;
     color: var(--color-text-muted);
-    font-size: $font-size-sm;
-    font-weight: 500;
-    transition: color 120ms ease, background-color 120ms ease;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-      color: var(--color-text);
-      background-color: var(--color-bg-subtle);
+      color: var(--color-accent);
+      background-color: var(--color-surface);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       text-decoration: none;
+      transform: translateY(-1px);
     }
 
     @include respond-to($breakpoint-md) {
-      padding: $space-2 $space-2;
+      padding: 0.35rem 0.85rem;
     }
   }
 
@@ -133,19 +146,25 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: $radius-sm;
-    color: var(--color-text-muted);
-    transition: color 120ms ease, background-color 120ms ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition: all 160ms ease;
 
     &:hover {
-      color: var(--color-text);
-      background-color: var(--color-bg-subtle);
+      background-color: var(--color-surface);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: scale(1.05);
     }
   }
 
   &__menu-toggle {
+    border-radius: $radius-sm;
+
     @include respond-to($breakpoint-md) {
       display: none;
     }
