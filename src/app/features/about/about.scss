@@ -6,76 +6,77 @@
 
   &__inner {
     @include container;
-    padding-block: $space-8 $space-7;
-  }
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+    padding-block: $space-8 $space-9;
 
-  &__header {
-    margin-bottom: $space-7;
-    max-width: 42rem;
-  }
-
-  &__eyebrow {
-    margin: 0 0 $space-3;
-    font-size: $font-size-sm;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  &__title {
-    margin: 0 0 $space-2;
-    font-size: $font-size-3xl;
-
-    @include respond-to($breakpoint-md) {
-      font-size: 2.75rem;
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+      gap: $space-9;
     }
   }
 
-  &__subtitle {
-    margin: 0;
-    font-size: $font-size-xl;
-    color: var(--color-text-muted);
-    font-weight: 500;
+  &__rail {
+    @include respond-to($breakpoint-lg) {
+      position: sticky;
+      top: calc(#{$header-height} + #{$space-6});
+      align-self: start;
+    }
   }
 
-  &__body {
-    max-width: 48rem;
+  &__rail-title {
+    font-size: $font-size-display-sm;
+    margin: $space-3 0 $space-4;
   }
 
-  &__intro {
+  &__rail-meta {
+    max-width: 16rem;
+  }
+
+  &__content {
+    max-width: 46rem;
+  }
+
+  &__lede {
     font-size: $font-size-lg;
-    color: var(--color-text);
-    margin-bottom: $space-7;
+    color: var(--color-text-muted);
+    margin-bottom: $space-8;
   }
 
   &__block {
-    margin-bottom: $space-7;
+    margin-bottom: $space-8;
+    padding-top: $space-6;
+    border-top: 1px solid var(--color-rule);
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__heading {
-    font-size: $font-size-xl;
-    margin-bottom: $space-4;
+  &__block-title {
+    font-size: $font-size-sm;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+    margin-bottom: $space-5;
   }
 
-  &__focus-grid {
+  &__focus-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $space-4;
+    gap: 0;
 
     @include respond-to($breakpoint-md) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: $space-5 $space-6;
+      grid-template-columns: 1fr 1fr;
+      column-gap: $space-8;
     }
   }
 
   &__focus-item {
-    border-top: 1px solid var(--color-border);
-    padding-top: $space-3;
+    padding-block: $space-4;
+    border-bottom: 1px solid var(--color-rule);
   }
 
   &__focus-title {
@@ -91,29 +92,39 @@
   }
 
   &__interests {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $space-2;
-
-    @include respond-to($breakpoint-md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2 $space-5;
 
     li {
-      position: relative;
-      padding-left: $space-5;
-      color: var(--color-text-muted);
       font-size: $font-size-sm;
+      color: var(--color-text-muted);
+      padding-left: $space-4;
+      position: relative;
 
       &::before {
         content: '';
         position: absolute;
         left: 0;
-        top: 0.65em;
+        top: 0.6em;
         width: 0.4rem;
         height: 1px;
-        background-color: var(--color-border-strong);
+        background-color: var(--color-accent-2);
       }
+    }
+  }
+
+  &__quote {
+    margin: 0;
+    padding-left: $space-5;
+    border-left: 2px solid var(--color-accent-2);
+
+    p {
+      font-family: $font-family-display;
+      font-size: $font-size-xl;
+      line-height: 1.45;
+      color: var(--color-text);
+      margin: 0;
     }
   }
 }

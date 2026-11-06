@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { profile } from '../../../core/data/profile';
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  protected readonly profile = profile;
   protected readonly year = new Date().getFullYear();
 }

@@ -1,0 +1,115 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  border-bottom: 1px solid var(--color-rule);
+
+  &__inner {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-7;
+    padding-block: $space-8 $space-7;
+
+    @include respond-to($breakpoint-lg) {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: $space-8;
+      align-items: end;
+    }
+  }
+
+  &__eyebrow {
+    margin-bottom: $space-4;
+  }
+
+  &__name {
+    font-size: $font-size-display;
+    margin: 0 0 $space-4;
+    overflow-wrap: break-word;
+  }
+
+  &__headline {
+    font-size: $font-size-xl;
+    font-weight: 600;
+    margin: 0 0 $space-1;
+  }
+
+  &__focus {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    color: var(--color-accent-2);
+    margin: 0 0 $space-5;
+  }
+
+  &__rule {
+    margin-bottom: $space-5;
+    max-width: 20rem;
+  }
+
+  &__lede {
+    font-size: $font-size-lg;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    margin-bottom: $space-4;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-bottom: $space-6;
+  }
+
+  &__meta-dot {
+    color: var(--color-text-faint);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+  }
+
+  &__side {
+    border-top: 1px solid var(--color-rule-strong);
+    padding-top: $space-5;
+
+    @include respond-to($breakpoint-lg) {
+      border-top: none;
+      border-left: 1px solid var(--color-rule);
+      padding-top: 0;
+      padding-left: $space-8;
+    }
+  }
+
+  &__facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__fact {
+    padding-block: $space-4;
+    border-bottom: 1px solid var(--color-rule);
+
+    dt {
+      font-size: $font-size-sm;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-bottom: $space-1;
+    }
+
+    dd {
+      margin: 0;
+      font-size: $font-size-base;
+      color: var(--color-text);
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
+import { profile } from '../../../core/data/profile';
 
 interface NavItem {
   label: string;
   href: string;
+  index: string;
   implemented: boolean;
 }
 
@@ -19,14 +21,15 @@ export class Header {
 
   protected readonly theme = this.themeService.theme;
   protected readonly menuOpen = signal(false);
+  protected readonly profile = profile;
 
   protected readonly navItems: NavItem[] = [
-    { label: 'About', href: '#about', implemented: true },
-    { label: 'Experience', href: '#experience', implemented: false },
-    { label: 'Projects', href: '#projects', implemented: false },
-    { label: 'Case Studies', href: '#case-studies', implemented: false },
-    { label: 'Writing', href: '#writing', implemented: false },
-    { label: 'Contact', href: '#contact', implemented: false },
+    { label: 'About', href: '#about', index: '01', implemented: true },
+    { label: 'Experience', href: '#experience', index: '02', implemented: false },
+    { label: 'Projects', href: '#projects', index: '03', implemented: false },
+    { label: 'Case Studies', href: '#case-studies', index: '04', implemented: false },
+    { label: 'Writing', href: '#writing', index: '05', implemented: false },
+    { label: 'Contact', href: '#contact', index: '06', implemented: false },
   ];
 
   protected toggleTheme(): void {

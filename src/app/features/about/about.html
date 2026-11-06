@@ -1,24 +1,20 @@
 <section class="about" id="about" aria-labelledby="about-heading">
   <div class="about__inner">
-    <header class="about__header">
-      <p class="about__eyebrow">About</p>
-      <h1 class="about__title" id="about-heading">Software Engineer</h1>
-      <p class="about__subtitle">.NET &amp; Backend Engineering</p>
-    </header>
+    <div class="about__rail">
+      <span class="section-number">01</span>
+      <h2 class="display about__rail-title" id="about-heading">About</h2>
+      <p class="meta about__rail-meta">{{ profile.headline }}</p>
+    </div>
 
-    <div class="about__body">
-      <p class="about__intro">
-        I'm a Software Engineer focused on building reliable business applications and
-        backend systems. My experience includes designing APIs, integrating business
-        platforms, working with databases, and solving real-world engineering challenges.
-      </p>
+    <div class="about__content">
+      <p class="about__lede">{{ profile.summary }}</p>
 
       <section class="about__block" aria-labelledby="focus-heading">
-        <h2 class="about__heading" id="focus-heading">Technical Focus</h2>
-        <ul class="about__focus-grid">
-          @for (area of focusAreas; track area.title) {
+        <h3 class="about__block-title" id="focus-heading">Technical Focus</h3>
+        <ul class="about__focus-list">
+          @for (area of profile.focusAreas; track area.title) {
             <li class="about__focus-item">
-              <h3 class="about__focus-title">{{ area.title }}</h3>
+              <h4 class="about__focus-title">{{ area.title }}</h4>
               <p class="about__focus-description">{{ area.description }}</p>
             </li>
           }
@@ -26,22 +22,19 @@
       </section>
 
       <section class="about__block" aria-labelledby="interests-heading">
-        <h2 class="about__heading" id="interests-heading">Professional Interests</h2>
+        <h3 class="about__block-title" id="interests-heading">Professional Interests</h3>
         <ul class="about__interests">
-          @for (interest of interests; track interest) {
+          @for (interest of profile.interests; track interest) {
             <li>{{ interest }}</li>
           }
         </ul>
       </section>
 
-      <section class="about__block" aria-labelledby="philosophy-heading">
-        <h2 class="about__heading" id="philosophy-heading">Engineering Philosophy</h2>
-        <p>
-          I believe good software starts with understanding the problem before writing
-          code. Engineering decisions should be deliberate, systems should be
-          maintainable, and performance and reliability matter as much as features.
-          I learn best by building real things and reflecting on what works.
-        </p>
+      <section class="about__block about__block--quote" aria-labelledby="philosophy-heading">
+        <h3 class="about__block-title" id="philosophy-heading">Engineering Philosophy</h3>
+        <blockquote class="about__quote">
+          <p>{{ profile.philosophy }}</p>
+        </blockquote>
       </section>
     </div>
   </div>

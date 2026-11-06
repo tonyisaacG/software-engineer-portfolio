@@ -1,6 +1,15 @@
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__brand">Software Engineer Portfolio</p>
-    <p class="site-footer__copy">&copy; {{ year }} Software Engineer Portfolio. All rights reserved.</p>
+    <div class="site-footer__brand-block">
+      <p class="site-footer__brand display">{{ profile.name }}</p>
+      <p class="site-footer__tagline">{{ profile.headline }}</p>
+    </div>
+
+    <div class="site-footer__links">
+      <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      <a [href]="profile.links.cv" download>CV (PDF)</a>
+    </div>
+
+    <p class="site-footer__copy">&copy; {{ year }} {{ profile.name }}. All rights reserved.</p>
   </div>
 </footer>

@@ -49,9 +49,16 @@
   }
 
   &__name {
-    @include respond-to($breakpoint-md) {
-      // Always visible; kept for clarity on larger screens.
-    }
+    font-family: $font-family-display;
+    font-size: $font-size-lg;
+    font-weight: 600;
+  }
+
+  &__index {
+    font-family: $font-family-mono;
+    font-size: 0.6875rem;
+    color: var(--color-accent-2);
+    margin-right: $space-2;
   }
 
   &__nav {

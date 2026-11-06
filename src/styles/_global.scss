@@ -82,3 +82,89 @@ svg {
 ::selection {
   background-color: var(--color-accent-subtle);
 }
+
+// Editorial utilities
+.display {
+  font-family: $font-family-display;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.meta {
+  font-size: $font-size-sm;
+  color: var(--color-text-muted);
+}
+
+.section-number {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+  color: var(--color-accent-2);
+  letter-spacing: 0.08em;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 0;
+}
+
+.rule-strong {
+  border: none;
+  border-top: 1px solid var(--color-rule-strong);
+  margin: 0;
+}
+
+.stack-tag {
+  display: inline-block;
+  font-family: $font-family-mono;
+  font-size: 0.75rem;
+  padding: $space-1 $space-2;
+  border: 1px solid var(--color-rule);
+  border-radius: $radius-sm;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-subtle);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  min-height: 44px;
+  padding: $space-2 $space-5;
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: $font-size-sm;
+  color: var(--color-text);
+  background-color: transparent;
+  transition: background-color 140ms ease, color 140ms ease, transform 140ms ease;
+
+  &:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  &--solid {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+
+    &:hover {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+    }
+  }
+
+  @include focus-visible;
+}

@@ -1,0 +1,50 @@
+<section class="hero" aria-labelledby="hero-name">
+  <div class="hero__inner">
+    <div class="hero__main">
+      <p class="eyebrow hero__eyebrow">Portfolio — {{ profile.location }}</p>
+
+      <h1 class="display hero__name" id="hero-name">{{ profile.name }}</h1>
+
+      <p class="hero__headline">{{ profile.headline }}</p>
+      <p class="hero__focus">{{ profile.focus }}</p>
+
+      <hr class="rule hero__rule" />
+
+      <p class="hero__lede">{{ profile.summary }}</p>
+
+      <div class="hero__meta">
+        <span class="meta">{{ profile.yearsExperience }} years of experience</span>
+        <span class="meta hero__meta-dot" aria-hidden="true">·</span>
+        <span class="meta">{{ profile.currentRole }}</span>
+      </div>
+
+      <div class="hero__actions">
+        <a class="btn btn--solid" [href]="profile.links.cv" download>
+          Download CV
+        </a>
+        <a class="btn" [href]="'mailto:' + profile.email">Email me</a>
+      </div>
+    </div>
+
+    <aside class="hero__side" aria-label="Profile facts">
+      <dl class="hero__facts">
+        <div class="hero__fact">
+          <dt>Based in</dt>
+          <dd>{{ profile.location }}</dd>
+        </div>
+        <div class="hero__fact">
+          <dt>Focus</dt>
+          <dd>.NET, ASP.NET Core, Angular</dd>
+        </div>
+        <div class="hero__fact">
+          <dt>Currently</dt>
+          <dd>Backend Engineer at Cyrus</dd>
+        </div>
+        <div class="hero__fact">
+          <dt>Languages</dt>
+          <dd>{{ profile.languages.join(' · ') }}</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
