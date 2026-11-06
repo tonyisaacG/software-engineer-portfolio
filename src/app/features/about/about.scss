@@ -1,0 +1,119 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.about {
+  scroll-margin-top: $header-height;
+
+  &__inner {
+    @include container;
+    padding-block: $space-8 $space-7;
+  }
+
+  &__header {
+    margin-bottom: $space-7;
+    max-width: 42rem;
+  }
+
+  &__eyebrow {
+    margin: 0 0 $space-3;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  &__title {
+    margin: 0 0 $space-2;
+    font-size: $font-size-3xl;
+
+    @include respond-to($breakpoint-md) {
+      font-size: 2.75rem;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: $font-size-xl;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  &__body {
+    max-width: 48rem;
+  }
+
+  &__intro {
+    font-size: $font-size-lg;
+    color: var(--color-text);
+    margin-bottom: $space-7;
+  }
+
+  &__block {
+    margin-bottom: $space-7;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__heading {
+    font-size: $font-size-xl;
+    margin-bottom: $space-4;
+  }
+
+  &__focus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-4;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-5 $space-6;
+    }
+  }
+
+  &__focus-item {
+    border-top: 1px solid var(--color-border);
+    padding-top: $space-3;
+  }
+
+  &__focus-title {
+    margin: 0 0 $space-1;
+    font-size: $font-size-base;
+    font-weight: 600;
+  }
+
+  &__focus-description {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: var(--color-text-muted);
+  }
+
+  &__interests {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-2;
+
+    @include respond-to($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    li {
+      position: relative;
+      padding-left: $space-5;
+      color: var(--color-text-muted);
+      font-size: $font-size-sm;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.65em;
+        width: 0.4rem;
+        height: 1px;
+        background-color: var(--color-border-strong);
+      }
+    }
+  }
+}
